@@ -6,10 +6,10 @@ public class PlayWithRemote{
     public static void main(String[] args){
         
         // create command receiver
-        ElectronicDevice newDevice = RemoteControl.getDevice();
+        ElectronicDevice newTelevision = RemoteControl.getTelevision();
         
         // create a concrete command, register the receiver
-        TurnTVOn onCommand = new TurnTVOn(newDevice);
+        TurnTVOn onCommand = new TurnTVOn(newTelevision);
 
         // create invoker
         DeviceButton b = new DeviceButton();
@@ -18,15 +18,28 @@ public class PlayWithRemote{
         b.execute(onCommand);
         
         // create another concrete command        
-        TurnTVOff offCommand = new TurnTVOff(newDevice);
+        TurnTVOff offCommand = new TurnTVOff(newTelevision);
         
         // invoke another concrete command
         b.execute(offCommand);
 
 
-        // Stereo
-        TurnStereoOn sOnCommand = new TurnStereoOn(newDevice);
 
+        // Stereo
+
+        // create command receiver
+        ElectronicDevice newStereo = RemoteControl.getStereo();
+
+        // create a concrete command, register the receiver
+        TurnStereoOn sOnCommand = new TurnStereoOn(newStereo);
+
+        // invoke command
         b.execute(sOnCommand);
+
+        // create another concrete command
+        TurnStereoOff sOffCommand = new TurnStereoOff(newStereo);
+
+        // invoke command
+        b.execute(sOffCommand);
     }
 }
