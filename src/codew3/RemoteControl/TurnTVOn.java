@@ -14,4 +14,10 @@ public class TurnTVOn implements Command {
 
         myDevice.on();
     }
+
+    @Override
+    public void undo() {
+        System.out.println("You undid the TurnTVOn command!");
+
+    }
 }

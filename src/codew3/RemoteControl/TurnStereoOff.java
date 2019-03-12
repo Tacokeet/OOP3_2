@@ -14,4 +14,9 @@ public class TurnStereoOff implements Command {
 
         myDevice.off();
     }
+
+    @Override
+    public void undo() {
+        System.out.println("You undid the TurnStereoOff command!");
+    }
 }

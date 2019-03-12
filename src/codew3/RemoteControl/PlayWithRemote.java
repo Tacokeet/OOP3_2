@@ -16,13 +16,14 @@ public class PlayWithRemote{
         
         // invoke command
         b.execute(onCommand);
-        
+
+        b.undo();
+
         // create another concrete command        
         TurnTVOff offCommand = new TurnTVOff(newTelevision);
         
         // invoke another concrete command
         b.execute(offCommand);
-
 
 
         // Stereo
@@ -33,6 +34,8 @@ public class PlayWithRemote{
         // create a concrete command, register the receiver
         TurnStereoOn sOnCommand = new TurnStereoOn(newStereo);
 
+
+
         // invoke command
         b.execute(sOnCommand);
 
@@ -41,5 +44,8 @@ public class PlayWithRemote{
 
         // invoke command
         b.execute(sOffCommand);
+
+        b.undo();
+
     }
 }
