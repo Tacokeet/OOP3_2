@@ -4,4 +4,5 @@ package codew3.RemoteControl;
 public interface Command {
     
     public void execute();
+    public void undo();
 }
