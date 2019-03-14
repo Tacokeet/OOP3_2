@@ -3,25 +3,26 @@ package codew3.Iterator;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-public class MyStack implements Iterable<String> {
+public class MyStack<E> implements Iterable<E> {
 
-    private ArrayList<String> list = new ArrayList<>();
+    private ArrayList<E> list = new ArrayList<>();
 
     @Override
-    public Iterator<String> iterator() {
+    public Iterator<E> iterator() {
         StackIterator iterator = new StackIterator();
         while(iterator.hasNext()){
             System.out.println(pop());
         }
         return null;
+
     }
 
-    public void push(String s){
+    public void push(E s){
         list.add(s);
     }
 
-    public String pop(){
-        String s = list.get(list.size() - 1);
+    public E pop(){
+        E s = list.get(list.size() - 1);
         list.remove(list.size() -1);
         return s;
     }
@@ -30,7 +31,7 @@ public class MyStack implements Iterable<String> {
         return list.size() == 0;
     }
 
-    public class StackIterator implements Iterator {
+    public class StackIterator<E> implements Iterator<E> {
         int index;
 
         @Override
@@ -42,9 +43,9 @@ public class MyStack implements Iterable<String> {
         }
 
         @Override
-        public Object next() {
+        public E next() {
             if(this.hasNext()){
-                return list.get(index++);
+                return (E) list.get(index++);
             }
             return null;
         }
