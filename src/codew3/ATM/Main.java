@@ -9,7 +9,7 @@ public class Main {
 
         // create the context
         ATM atm = new ATM();
-//        atm.setState(new IdleState());
+        atm.setState(new IdleState());
 
         System.out.println("Type a number for an event:");
         System.out.println("1. Insert card");
