@@ -25,6 +25,7 @@ public class Mozzarella extends ToppingDecorator {
 
     @Override
     public void setSize(char s) {
+        System.out.println("Inside Mozzarrella Calling setSize");
         tempPizza.setSize(s);
     }
 

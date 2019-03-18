@@ -6,6 +6,7 @@ public class PizzaMaker {
         // create a basic pizza with mozzarella & tomatosauce
         Pizza basicPizza = new TomatoSauce(new Mozzarella(new PlainPizza()));
 
+        System.out.println("Ingredients: " + basicPizza.getDescription());
         basicPizza.setSize('M');
 
         System.out.println("Size: " + basicPizza.getSize());

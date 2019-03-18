@@ -5,7 +5,7 @@ public class PlainPizza implements Pizza {
     private char size;
 
     public String getDescription() {
-        return "Just a plain pizza of size";
+        return "Just a plain pizza of size" + size;
     }
 
     public double getCost() {
@@ -19,6 +19,7 @@ public class PlainPizza implements Pizza {
     }
 
     public void setSize(char s){
+        System.out.println("Inside Plainpizza Calling setSize");
         size = s;
     }
 

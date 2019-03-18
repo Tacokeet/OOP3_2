@@ -25,6 +25,7 @@ public class TomatoSauce extends ToppingDecorator {
 
     @Override
     public void setSize(char s) {
+        System.out.println("Inside TomatoSauce Calling setSize");
         tempPizza.setSize(s);
     }
 }

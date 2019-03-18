@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         // create the context
+
         ProxyATM atm = new ProxyATM();
         atm.setState(new IdleState());
 
