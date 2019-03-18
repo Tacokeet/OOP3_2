@@ -11,5 +11,15 @@ public class Main {
         stack.push("kwak");
 
         stack.iterator();
+
+        stack.push("kwik");
+        stack.push("kwek");
+        stack.push("kwak");
+
+        System.out.println("\n");
+
+        while(!stack.isEmpty()){
+            System.out.println(stack.pop());
+        }
     }
 }

@@ -1,7 +1,7 @@
 package codew3.ATM;
 
 // the context
-public class ATM
+public class ATM implements ATMBasis
 {
     private ATMState state;
     private int amount = 100;
@@ -19,19 +19,19 @@ public class ATM
         return this.state;
     }
 
-    void insertCard() {
+    public void insertCard() {
         state.insertCard(this);
     }
 
-    void ejectCard() {
+    public void ejectCard() {
         state.ejectCard(this);
     }
 
-    void insertPin() {
+    public void insertPin() {
         state.insertPin(this);
     }
 
-    void requestAmount() {
+    public void requestAmount() {
         state.requestAmount(this);
     }
 }

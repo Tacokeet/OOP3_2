@@ -8,8 +8,11 @@ public class Main {
     public static void main(String[] args) {
 
         // create the context
-        ATM atm = new ATM();
+        ProxyATM atm = new ProxyATM();
         atm.setState(new IdleState());
+
+        Scanner myObj = new Scanner(System.in);
+        String number;
 
         System.out.println("Type a number for an event:");
         System.out.println("1. Insert card");
@@ -20,7 +23,27 @@ public class Main {
 
         System.out.println("Insert your card");
 
+
         // while loop
+        System.out.println("Enter number: ");
+        while (true){
+            number = myObj.nextLine();
+            switch (number){
+                case "1":
+                    atm.insertCard();
+                    break;
+                case "2":
+                    atm.insertPin();
+                    break;
+                case "3":
+                    atm.requestAmount();
+                    break;
+                case "4":
+                    atm.ejectCard();
+                    break;
+            }
+
+        }
 
     }
 }
