@@ -12,12 +12,10 @@ public class TxtReader {
         FileDialog dialog = new FileDialog((Frame)null, "Select File to Open");
         dialog.setMode(FileDialog.LOAD);
         dialog.setVisible(true);
-        File file = new File(dialog.getFile());
-        System.out.println(file.getAbsolutePath());
+        File file = new File(dialog.getDirectory() + dialog.getFile());
+        System.out.println(file);
 
-        File file1 = new File("C:\\Users\\Tacokeet\\IdeaProjects\\OOP3_2\\src\\codew4\\Exercise12_14.txt");
-
-        Scanner sc = new Scanner(file1);
+        Scanner sc = new Scanner(file);
         int total = 0;
 
         sc.useDelimiter("\\ ");
