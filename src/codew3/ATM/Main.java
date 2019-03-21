@@ -9,7 +9,10 @@ public class Main {
 
         // create the context
 
-        ProxyATM atm = new ProxyATM();
+
+
+        ATM foo = new ATM();
+        ProxyATM atm = new ProxyATM(foo);
         atm.setState(new IdleState());
 
         Scanner myObj = new Scanner(System.in);

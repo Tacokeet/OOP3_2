@@ -3,9 +3,12 @@ package codew3.ATM;
 public class ProxyATM implements ATMBasis{
 
     private ATM atm;
+    private State state;
 
-    public ProxyATM(){
-        this.atm = new ATM();
+    public ProxyATM(ATM atm){
+        this.state = new State(atm);
+        // dependency injection
+        this.atm = atm;
     }
 
     void setState(ATMState state) {
@@ -14,21 +17,21 @@ public class ProxyATM implements ATMBasis{
 
     @Override
     public void insertCard() {
-        atm.insertCard();
+        state.insertCard();
     }
 
     @Override
     public void ejectCard() {
-        atm.ejectCard();
+        state.ejectCard();
     }
 
     @Override
     public void insertPin() {
-        atm.insertPin();
+        state.insertPin();
     }
 
     @Override
     public void requestAmount() {
-        atm.requestAmount();
+        state.requestAmount();
     }
 }
