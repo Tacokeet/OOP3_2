@@ -1,10 +1,22 @@
 package codew4;
 
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
- 
+import java.util.List;
+
 public class LZW {
     /** Compress a string to a list of output symbols. */
-    public static List<Integer> compress(String uncompressed) {
+    public static List<Integer> compress(String filepath) {
+        String uncompressed = "";
+        try {
+            uncompressed = new String(Files.readAllBytes(Paths.get(filepath)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // Build the dictionary.
         int dictSize = 256;
         Map<String,Integer> dictionary = new HashMap<String,Integer>();
@@ -61,7 +73,13 @@ public class LZW {
     }
  
     public static void main(String[] args) {
-        List<Integer> compressed = compress("TOBEORNOTTOBEORTOBEORNOT");
+        FileDialog dialog = new FileDialog((Frame)null, "Select File to Open");
+        dialog.setMode(FileDialog.LOAD);
+        dialog.setVisible(true);
+        File file = new File(dialog.getDirectory() + dialog.getFile());
+        System.out.println(file);
+
+        List<Integer> compressed = compress(file.getAbsolutePath());
         System.out.println(compressed);
         String decompressed = decompress(compressed);
         System.out.println(decompressed);
