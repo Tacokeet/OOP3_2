@@ -24,6 +24,8 @@ public class JsonMaker {
             file.write(obj.toJSONString());
             System.out.println("Successfully Copied JSON Object to File...");
             System.out.println("\nJSON Object: " + obj);
+        } catch (Exception e){
+            System.out.println(e);
         }
     }
 }
