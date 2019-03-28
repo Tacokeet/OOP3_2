@@ -60,15 +60,21 @@ public class NameGenerator {
             System.out.println("Creating table in given database...");
             stmt = conn.createStatement();
 
-            String sql = "CREATE TABLE Name " +
-                    "(name VARCHAR(20), " +
-                    " gender CHAR(1), " +
-                    " count INTEGER, " +
-                    " age INTEGER, " +
-                    " constraint pkName primary key (name, gender))";
+            stmt.execute("CREATE PROCEDURE `WhoAreThey`(" +
+                    "OUT error VARCHAR(128)," +
+                    "IN office VARCHAR(10)) " +
+                    "BEGIN "+
+                    "SET error = NULL; "+
+                    "IF office IS NULL THEN "+
+                    "SET error = 'You need to pass in an office number'; "+
+                    "ELSE "+
+                    "  SELECT EmployeeID, Name FROM " +
+                    " employees WHERE office = office; "+
+                    "END IF; "+
+                    "END");
 
-            stmt.executeUpdate(sql);
             System.out.println("Created table in given database...");
+
         } catch (SQLException se) {
             se.printStackTrace();
         } catch (Exception e) {
